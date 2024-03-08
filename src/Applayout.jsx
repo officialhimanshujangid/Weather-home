@@ -18,13 +18,18 @@ const Div = styled("div")`
 function Applayout() {
   const { getCurrentLocation, loading } = contextData();
   const [locationFetched, setLocationFetched] = useState(false);
-  console.log(loading);
   useEffect(() => {
+    navigator.permissions.query({ name: "geolocation" }).then((result) => {
+      if (result.state === "denied") {
+        alert("Location is disabled. Please enable location services");
+      }
+    });
     if (!locationFetched) {
       getCurrentLocation();
       setLocationFetched(true);
     }
   }, [locationFetched, getCurrentLocation]);
+
   return (
     <Div>
       <Header />

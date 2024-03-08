@@ -15,12 +15,14 @@ const Div = styled("div")`
   position: absolute;
   bottom: 0;
   left: 0px;
+  width: 100%;
 `;
 
 const Div1 = styled("div")`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 const H2 = styled("div")`
   padding: 0vh 1vw;
@@ -119,7 +121,7 @@ function Wave() {
     <Div1>
       <H2>Temprature History @{location.city}</H2>
       <Div>
-        <ResponsiveContainer width={widths} height={heights}>
+        <ResponsiveContainer width="100%" height={heights}>
           <AreaChart data={temperatureData} margin={{ left: 0 }}>
             <Area
               dataKey="temperature"
@@ -144,7 +146,7 @@ function Wave() {
               contentStyle={{ backgroundColor: "#003339", color: "white" }}
               content={<CustomTooltip />}
             />
-            <Label content={<CustomizedLabel />} position="top" />
+            <Label content={<CustomizedLabel />} position="bottom" />
           </AreaChart>
         </ResponsiveContainer>
       </Div>

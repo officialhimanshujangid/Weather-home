@@ -25,6 +25,11 @@ const Div3 = styled("div")`
 const P1 = styled("p")`
   color: #003339;
 `;
+const P2 = styled("p")`
+  @media (max-width: 900px) {
+    font-size: 0.8rem;
+  }
+`;
 function AdditionalInfo() {
   const { current } = contextData();
   if (!current) return;
@@ -38,19 +43,19 @@ function AdditionalInfo() {
     <Div1>
       <Div2>
         <Div3>
-          <p>Temperature</p>
+          <P2>Temperature</P2>
           <P1>{temperature_2m}°C</P1>
         </Div3>
         <Div3>
-          <p>Precipitation</p>
+          <P2>Precipitation</P2>
           <P1>{precipitation} mm</P1>
         </Div3>
         <Div3>
-          <p>Humidity</p>
+          <P2>Humidity</P2>
           <P1>{relative_humidity_2m} %</P1>
         </Div3>
         <Div3>
-          <p>Wind</p>
+          <P2>Wind</P2>
           <P1>{wind_speed_10m} Km/h</P1>
         </Div3>
       </Div2>

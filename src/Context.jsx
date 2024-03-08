@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/rules-of-hooks */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 const weatherContext = createContext();
 
 function ContextDataProvider({ children }) {
@@ -14,6 +14,11 @@ function ContextDataProvider({ children }) {
     city: "New Delhi",
     country: "India",
   });
+  const positionsRef = useRef({ lat: 40.73061, lng: -73.935242 });
+
+  const setPositionSync = (lat, lng) => {
+    positionsRef.current = { lat, lng };
+  };
   const [current, SetCurrent] = useState(null);
   const [forcast, SetForcast] = useState(null);
   const [history, SetHistory] = useState(``);
@@ -97,6 +102,7 @@ function ContextDataProvider({ children }) {
       navigator.geolocation.getCurrentPosition(async function (position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
+        setPositionSync(latitude, longitude);
         try {
           const response = await fetch(
             `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
