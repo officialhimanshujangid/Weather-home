@@ -87,12 +87,13 @@ function ContextDataProvider({ children }) {
       );
       const forcastData = await forcastRes.json();
       SetForcast(forcastData);
-      setloading(false);
+
       const historyRes = await fetch(
         `https://archive-api.open-meteo.com/v1/archive?latitude=${latitude}&longitude=${longitude}&start_date=${thirtyDaysAgo}&end_date=${today}&daily=temperature_2m_max`
       );
       const historyData = await historyRes.json();
       SetHistory(historyData);
+      setloading(false);
     } catch (err) {
       console.error(err);
     }
