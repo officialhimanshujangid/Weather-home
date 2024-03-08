@@ -22,7 +22,8 @@ const Div2 = styled("div")`
   }
 `;
 const Box = styled("div")`
-  padding: 1vh 1vw;
+  padding: 10px 5px;
+  width: 100%;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -35,10 +36,16 @@ const Box = styled("div")`
 const H1 = styled("h1")`
   font-size: 25px;
   @media (max-width: 1200px) {
-    font-size: 15px;
+    font-size: 20px;
   }
 `;
 const H2 = styled("h2")`
+  font-size: 20px;
+  @media (max-width: 1200px) {
+    font-size: 10px;
+  }
+`;
+const H3 = styled("h2")`
   font-size: 20px;
   @media (max-width: 1200px) {
     font-size: 15px;
@@ -73,32 +80,32 @@ function Forcast() {
     <Div>
       <Div2>
         <Box className="active">
-          <H2>{time[5].split("T")[1]}</H2>
+          <H3>{time[5].split("T")[1]}</H3>
           <H1>{getWeatherIcon(weatherCode[5])}</H1>
           <H2>{temperature[5]} °C</H2>
         </Box>
         <Box>
-          <H2>{time[4].split("T")[1]}</H2>
+          <H3>{time[4].split("T")[1]}</H3>
           <H1>{getWeatherIcon(weatherCode[4])}</H1>
           <H2>{temperature[4]} °C</H2>
         </Box>
         <Box>
-          <H2>{time[3].split("T")[1]}</H2>
+          <H3>{time[3].split("T")[1]}</H3>
           <H1>{getWeatherIcon(weatherCode[3])}</H1>
           <H2>{temperature[3]} °C</H2>
         </Box>
         <Box>
-          <H2>{time[2].split("T")[1]}</H2>
+          <H3>{time[2].split("T")[1]}</H3>
           <H1>{getWeatherIcon(weatherCode[2])}</H1>
           <H2>{temperature[2]} °C</H2>
         </Box>
         <Box>
-          <H2>{time[1].split("T")[1]}</H2>
+          <H3>{time[1].split("T")[1]}</H3>
           <H1>{getWeatherIcon(weatherCode[1])}</H1>
           <H2>{temperature[1]} °C</H2>
         </Box>
         <Box>
-          <H2>{time[0].split("T")[1]}</H2>
+          <H3>{time[0].split("T")[1]}</H3>
           <H1>{getWeatherIcon(weatherCode[0])}</H1>
           <H2>{temperature[0]} °C</H2>
         </Box>

@@ -57,6 +57,9 @@ const Div3 = styled("div")`
   gap: 1rem;
   font-size: 1.3rem;
   color: #003339;
+  @media (max-width: 1200px) {
+    gap: 0.7rem;
+  }
 `;
 function LocationData() {
   const { location, date, current } = contextData();
@@ -97,8 +100,8 @@ function LocationData() {
         </H1>
         <p>{date}</p>
         <Div3>
-          <span>{getWeatherIcon(weather_code)}</span>
           <span>{cloudd(cloud_cover)}</span>
+          <span>{getWeatherIcon(weather_code)}</span>
         </Div3>
       </Div2>
       <H4>{temperature_2m} °C</H4>

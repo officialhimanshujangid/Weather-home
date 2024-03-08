@@ -122,12 +122,12 @@ function Wave() {
       <H2>Temprature History @{location.city}</H2>
       <Div>
         <ResponsiveContainer width="100%" height={heights}>
-          <AreaChart data={temperatureData} margin={{ left: 0 }}>
+          <AreaChart data={temperatureData} margin={{ top: 10 }}>
             <Area
               dataKey="temperature"
               type="monotone"
-              stroke="#CF7F22"
-              fill="#CF7F22"
+              stroke="#FFA135"
+              fill="#f78a0f"
               strokeWidth={1}
               name="Temperature"
               unit="°C"
