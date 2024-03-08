@@ -49,6 +49,9 @@ function Home() {
   `;
   const H2 = styled("div")`
     font-size: 10rem;
+    @media (max-width: 1200px) {
+      font-size: 7rem;
+    }
   `;
   if (!current) return;
   return (

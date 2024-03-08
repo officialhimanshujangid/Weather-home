@@ -93,38 +93,6 @@ function Wave() {
       name: time[time.length - 15],
       temperature: tempArray[tempArray.length - 15],
     },
-    {
-      name: time[time.length - 16],
-      temperature: tempArray[tempArray.length - 16],
-    },
-    {
-      name: time[time.length - 17],
-      temperature: tempArray[tempArray.length - 17],
-    },
-    {
-      name: time[time.length - 18],
-      temperature: tempArray[tempArray.length - 18],
-    },
-    {
-      name: time[time.length - 19],
-      temperature: tempArray[tempArray.length - 19],
-    },
-    {
-      name: time[time.length - 20],
-      temperature: tempArray[tempArray.length - 20],
-    },
-    {
-      name: time[time.length - 21],
-      temperature: tempArray[tempArray.length - 21],
-    },
-    {
-      name: time[time.length - 22],
-      temperature: tempArray[tempArray.length - 22],
-    },
-    {
-      name: time[time.length - 23],
-      temperature: tempArray[tempArray.length - 23],
-    },
   ];
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {

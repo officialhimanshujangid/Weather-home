@@ -18,7 +18,7 @@ const Div2 = styled("div")`
   color: white;
   width: 80vw;
   @media (max-width: 1200px) {
-    width: 95vw;
+    width: 85vw;
   }
 `;
 const Box = styled("div")`
