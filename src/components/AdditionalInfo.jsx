@@ -42,7 +42,7 @@ function AdditionalInfo() {
           <P1>{temperature_2m}°C</P1>
         </Div3>
         <Div3>
-          <p>precipitation</p>
+          <p>Precipitation</p>
           <P1>{precipitation} mm</P1>
         </Div3>
         <Div3>

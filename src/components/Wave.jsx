@@ -14,7 +14,7 @@ import { contextData } from "../Context";
 const Div = styled("div")`
   position: absolute;
   bottom: 0;
-  right: 10px;
+  left: 0px;
 `;
 
 const Div1 = styled("div")`
