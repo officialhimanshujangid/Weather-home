@@ -93,9 +93,11 @@ function ContextDataProvider({ children }) {
       );
       const historyData = await historyRes.json();
       SetHistory(historyData);
-      setloading(false);
     } catch (err) {
       console.error(err);
+      alert("please enter a valid city");
+    } finally {
+      setloading(false);
     }
   }
   function getCurrentLocation() {

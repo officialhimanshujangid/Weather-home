@@ -115,14 +115,18 @@ function Wave() {
   );
   const widths = window.screen.width;
   const heights =
-    widths > 1200 ? window.innerHeight / 5 : window.innerHeight / 4;
+    widths > 1200 ? window.innerHeight / 6 : window.innerHeight / 4;
 
   return (
     <Div1>
       <H2>Temprature History @{location.city}</H2>
       <Div>
         <ResponsiveContainer width="100%" height={heights}>
-          <AreaChart data={temperatureData} margin={{ top: 10 }}>
+          <AreaChart
+            data={temperatureData}
+            margin={{ top: 10 }}
+            padding={{ top: 10 }}
+          >
             <Area
               dataKey="temperature"
               type="monotone"
