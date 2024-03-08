@@ -32,17 +32,18 @@ const H1 = styled("div")`
     flex-direction: column;
   }
 `;
-// const H4 = styled("div")`
-//   font-size: 5rem;
-//   font-weight: 700;
-//   display: flex;
-//   align-items: flex-start;
-//   color: #003339;
-//   @media (max-width: 1200px) {
-//     font-size: 3.5rem;
-//     flex-direction: column;
-//   }
-// `;
+const H4 = styled("div")`
+  font-size: 5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: flex-start;
+  color: #003339;
+  @media (max-width: 700px) {
+    display: none;
+    font-size: 3.5rem;
+    flex-direction: column;
+  }
+`;
 const Div2 = styled("div")`
   display: flex;
   flex-direction: column;
@@ -58,7 +59,7 @@ const Div3 = styled("div")`
   color: #003339;
 `;
 function LocationData() {
-  const { location, date, current, countryImage } = contextData();
+  const { location, date, current } = contextData();
   if (!current) return;
 
   const { weather_code, cloud_cover, temperature_2m } = current.current;
@@ -100,8 +101,8 @@ function LocationData() {
           <span>{cloudd(cloud_cover)}</span>
         </Div3>
       </Div2>
-      {/* <H4>{temperature_2m} °C</H4> */}
-      <Img src={countryImage} />
+      <H4>{temperature_2m} °C</H4>
+      <Img src={"pixels.jpg"} />
     </Div1>
   );
 }

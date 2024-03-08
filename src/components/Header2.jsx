@@ -19,15 +19,15 @@ const Button = styled("button")`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #003339;
-  color: white;
+  background: white;
+  color: #003339;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 const Form = styled("form")`
   position: relative;
-  background: #003339;
+  background: white;
   height: 50px;
   border-radius: 40px;
   padding-inline: 5px;

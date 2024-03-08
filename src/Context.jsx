@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/rules-of-hooks */
-import { createClient } from "pexels";
 import { createContext, useContext, useState } from "react";
 const weatherContext = createContext();
 
@@ -18,7 +17,7 @@ function ContextDataProvider({ children }) {
   const [current, SetCurrent] = useState(null);
   const [forcast, SetForcast] = useState(null);
   const [history, SetHistory] = useState(``);
-  const [countryImage, SetcountryImage] = useState(null);
+  // const [countryImage, SetcountryImage] = useState(null);
   const [cross, setCross] = useState(5000);
   function settingCross(val) {
     setCross(val);
@@ -64,7 +63,12 @@ function ContextDataProvider({ children }) {
         city: name,
         country: country,
       });
-
+      // const imgResponse = await fetch(
+      //   `https://api.unsplash.com/photos/random?query=dark-buildings&client_id=cDFL7NqmKVLVMc-ruSh0_UTFUpSk9Ul-97i2b_WD2t8`
+      // );
+      // const imgData = await imgResponse.json();
+      // console.log(imgData.links.download);
+      // SetcountryImage(imgData.links.download);
       // 2) Getting actual weather
       const weatherRes = await fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,cloud_cover,wind_speed_10m`
@@ -81,12 +85,6 @@ function ContextDataProvider({ children }) {
       );
       const historyData = await historyRes.json();
       SetHistory(historyData);
-      const imgResponse = await fetch(
-        `https://api.unsplash.com/photos/random?query=${country}&client_id=cDFL7NqmKVLVMc-ruSh0_UTFUpSk9Ul-97i2b_WD2t8`
-      );
-      const imgData = await imgResponse.json();
-      console.log(imgData.links.download);
-      SetcountryImage(imgData.links.download);
     } catch (err) {
       console.error(err);
     }
@@ -111,14 +109,7 @@ function ContextDataProvider({ children }) {
       console.error("Geolocation is not supported by your browser");
     }
   }
-  //   const client = createClient(
-  //     "V6O4LU8ehgfLgqexPsiWvEX22ufOKtAD8U92zRMH5e6GtuRzcveZNcMG"
-  //   );
-  //   const query = "india";
 
-  //   client.photos.search({ query, per_page: 100 }).then((photos) => {
-  //     console.log(photos);
-  //   });
   return (
     <weatherContext.Provider
       value={{
@@ -129,7 +120,6 @@ function ContextDataProvider({ children }) {
         current,
         forcast,
         history,
-        countryImage,
         cross,
         settingCross,
       }}

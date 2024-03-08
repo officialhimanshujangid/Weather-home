@@ -22,11 +22,12 @@ const Div1 = styled("div")`
   flex-direction: column;
   align-items: center;
 `;
-const H2 = styled("h2")`
+const H2 = styled("div")`
   padding: 0vh 1vw;
+  font-size: 1.5rem;
 `;
 function Wave() {
-  const { history } = contextData();
+  const { history, location } = contextData();
   if (!history) return;
   const tempArray = history.daily.temperature_2m_max;
   const time = history.daily.time;
@@ -144,11 +145,11 @@ function Wave() {
   );
   const widths = window.screen.width;
   const heights =
-    widths > 1200 ? window.innerHeight / 4 : window.innerHeight / 2.5;
+    widths > 1200 ? window.innerHeight / 5 : window.innerHeight / 4;
 
   return (
     <Div1>
-      <H2>Temprature History</H2>
+      <H2>Temprature History @{location.city}</H2>
       <Div>
         <ResponsiveContainer width={widths} height={heights}>
           <AreaChart data={temperatureData} margin={{ left: 0 }}>

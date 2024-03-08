@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { IoLocation } from "react-icons/io5";
 
 function Home() {
-  const { cross, location, current, countryImage } = contextData();
+  const { cross, location, current } = contextData();
   const [translateValue, setTranslateValue] = useState(cross);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function Home() {
     position: absolute;
     top: 0;
     left: 0;
-    background: url(${countryImage});
+    background: url("https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg");
     width: 100vw;
     height: 100vh;
     background-size: cover;
@@ -35,9 +35,10 @@ function Home() {
     @media (max-width: 1200px) {
       flex-direction: column;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
       margin-top: 3vh;
-      gap: 3vh;
+      height: 80vh;
+      gap: 10vh;
     }
   `;
   const H1 = styled("div")`
@@ -48,9 +49,6 @@ function Home() {
   `;
   const H2 = styled("div")`
     font-size: 10rem;
-    @media (max-width: 1200px) {
-      font-size: 8rem;
-    }
   `;
   if (!current) return;
   return (
