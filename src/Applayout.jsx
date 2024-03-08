@@ -7,6 +7,7 @@ import AdditionalInfo from "./components/AdditionalInfo";
 import { contextData } from "./Context";
 import { useEffect, useState } from "react";
 import Home from "./Home";
+import Loader from "./components/Loader";
 
 const Div = styled("div")`
   /* overflow: hidden; */
@@ -15,22 +16,27 @@ const Div = styled("div")`
 `;
 
 function Applayout() {
-  const { getCurrentLocation } = contextData();
+  const { getCurrentLocation, loading } = contextData();
   const [locationFetched, setLocationFetched] = useState(false);
-
+  console.log(loading);
   useEffect(() => {
     if (!locationFetched) {
       getCurrentLocation();
       setLocationFetched(true);
     }
   }, [locationFetched, getCurrentLocation]);
-
   return (
     <Div>
       <Header />
       <LocationData />
-      <Forcast />
-      <AdditionalInfo />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Forcast />
+          <AdditionalInfo />
+        </>
+      )}
       <Wave />
       <Home />
     </Div>

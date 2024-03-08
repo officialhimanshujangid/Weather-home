@@ -19,6 +19,7 @@ function ContextDataProvider({ children }) {
   const [history, SetHistory] = useState(``);
   // const [countryImage, SetcountryImage] = useState(null);
   const [cross, setCross] = useState(5000);
+  const [loading, setloading] = useState(false);
   function settingCross(val) {
     setCross(val);
   }
@@ -49,6 +50,7 @@ function ContextDataProvider({ children }) {
 
   async function fetchWeather(location) {
     try {
+      setloading(true);
       const { today, thirtyDaysAgo } = getDates();
 
       //   1) Getting location (geocoding)
@@ -80,6 +82,7 @@ function ContextDataProvider({ children }) {
       );
       const forcastData = await forcastRes.json();
       SetForcast(forcastData);
+      setloading(false);
       const historyRes = await fetch(
         `https://archive-api.open-meteo.com/v1/archive?latitude=${latitude}&longitude=${longitude}&start_date=${thirtyDaysAgo}&end_date=${today}&daily=temperature_2m_max`
       );
@@ -122,6 +125,7 @@ function ContextDataProvider({ children }) {
         history,
         cross,
         settingCross,
+        loading,
       }}
     >
       {children}

@@ -65,7 +65,7 @@ const Input = styled("input")`
   outline: none;
   float: left;
   padding-left: 0px;
-  color: #ffffff;
+  color: #000000;
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
