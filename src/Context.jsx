@@ -22,7 +22,7 @@ function ContextDataProvider({ children }) {
   const [current, SetCurrent] = useState(null);
   const [forcast, SetForcast] = useState(null);
   const [history, SetHistory] = useState(``);
-  // const [countryImage, SetcountryImage] = useState(null);
+  const [countryImage, SetcountryImage] = useState(null);
   const [cross, setCross] = useState(5000);
   const [loading, setloading] = useState(false);
   function settingCross(val) {
@@ -70,6 +70,7 @@ function ContextDataProvider({ children }) {
         city: name,
         country: country,
       });
+      console.log(geoData);
       // const imgResponse = await fetch(
       //   `https://api.unsplash.com/photos/random?query=dark-buildings&client_id=cDFL7NqmKVLVMc-ruSh0_UTFUpSk9Ul-97i2b_WD2t8`
       // );
@@ -82,6 +83,13 @@ function ContextDataProvider({ children }) {
       );
       const weatherData = await weatherRes.json();
       SetCurrent(weatherData);
+
+      const FlagRes = await fetch(
+        `https://restcountries.com/v3.1/name/${geoData.results[0].country}?fullText=true`
+      );
+      const FlagData = await FlagRes.json();
+      SetcountryImage(FlagData[0]);
+
       const forcastRes = await fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,weather_code&forecast_days=1&forecast_hours=6`
       );
@@ -135,6 +143,7 @@ function ContextDataProvider({ children }) {
         cross,
         settingCross,
         loading,
+        countryImage,
       }}
     >
       {children}

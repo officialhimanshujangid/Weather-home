@@ -62,11 +62,12 @@ const Div3 = styled("div")`
   }
 `;
 function LocationData() {
-  const { location, date, current } = contextData();
+  const { location, date, current, countryImage } = contextData();
   if (!current) return;
 
   const { weather_code, cloud_cover, temperature_2m } = current.current;
 
+  const FlagPath = !countryImage ? "pixels.jpg" : countryImage.flags.png;
   function getWeatherIcon(wmoCode) {
     const icons = new Map([
       [[0], "☀️"],
@@ -105,7 +106,7 @@ function LocationData() {
         </Div3>
       </Div2>
       <H4>{temperature_2m} °C</H4>
-      <Img src={"pixels.jpg"} />
+      <Img src={FlagPath} />
     </Div1>
   );
 }
