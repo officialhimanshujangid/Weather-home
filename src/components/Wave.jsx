@@ -30,7 +30,7 @@ const H2 = styled("div")`
 `;
 function Wave() {
   const { history, location } = contextData();
-  if (!history) return;
+  if (!history || history.error === true) return;
   const tempArray = history.daily.temperature_2m_max;
   const time = history.daily.time;
 

@@ -30,8 +30,8 @@ function ContextDataProvider({ children }) {
   }
   function getDates() {
     const today = new Date();
-    const thirtyDaysAgo = new Date();
     today.setDate(today.getDate() - 2);
+    const thirtyDaysAgo = new Date(today);
     thirtyDaysAgo.setDate(today.getDate() - 30);
 
     // Format the dates to "YYYY-MM-DD"
@@ -87,7 +87,7 @@ function ContextDataProvider({ children }) {
       );
       const forcastData = await forcastRes.json();
       SetForcast(forcastData);
-
+      console.log(thirtyDaysAgo, today);
       const historyRes = await fetch(
         `https://archive-api.open-meteo.com/v1/archive?latitude=${latitude}&longitude=${longitude}&start_date=${thirtyDaysAgo}&end_date=${today}&daily=temperature_2m_max`
       );
